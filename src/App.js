@@ -24,7 +24,11 @@ class App extends Component {
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonClick={() => this.setState({open: !this.state.open})}
         />
-        <Drawer open={this.state.open}>
+        <Drawer
+          docked={false}
+          open={this.state.open}
+          onRequestChange={(open) => this.setState({open})}
+        >
           <MenuItem>Menu Item</MenuItem>
           <MenuItem>Menu Item 2</MenuItem>
         </Drawer>
