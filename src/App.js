@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
-//import reducer from './reducers';
+import reducer from './reducers';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logo from './logo.svg';
@@ -24,10 +24,10 @@ const logger = store => next => action => {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// const store = createStore(
-//   reducer,
-//   composeEnhancers(applyMiddleware(logger, thunk))
-// );
+const store = createStore(
+  reducer,
+  composeEnhancers(applyMiddleware(logger, thunk))
+);
 
 class App extends Component {
   render() {
