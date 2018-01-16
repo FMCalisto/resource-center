@@ -1,36 +1,23 @@
 import React, { Component } from 'react';
-
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+//import reducer from './reducers';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import logo from './logo.svg';
-
 import './App.css';
 
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {open: false};
-  }
-
   render() {
     return (
       <div className="App">
-        <AppBar
-          title="MyApp"
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-          onLeftIconButtonClick={() => this.setState({open: !this.state.open})}
-        />
-        <Drawer
-          docked={false}
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
-        >
-          <MenuItem>Menu Item 1</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
-        </Drawer>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
       </div>
     );
   }
