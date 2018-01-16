@@ -6,11 +6,25 @@ To navigate your way through applications built with Create React App & perform 
 
 ## Contributing
 If you are interested in contributing to the project then checkout this repo. You will need <code>[node](https://nodejs.org/en/)</code> & <code>[npm](https://www.npmjs.com/)</code> installed. You can also use <code>[yarn](https://yarnpkg.com/en/)</code> instead of <code>npm</code>. Now start the process with the following:
+
+### [npm](https://www.npmjs.com/)
+
 ```
 > git clone https://github.com/FMCalisto/resource-center.git
 > cd resource-center
 > npm install
-> npm start or yarn start
+> npm start
+```
+
+OR
+
+### [yarn](https://yarnpkg.com/)
+
+```
+> git clone https://github.com/FMCalisto/resource-center.git
+> cd resource-center
+> npm install
+> yarn start
 ```
 
 ### Not Familiar with Git?
