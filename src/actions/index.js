@@ -10,3 +10,8 @@ export const sorting = sortBy => ({
   type: SET_SORTING,
   sortBy
 });
+
+// export const fetchCategories = () => dispatch =>
+//   CategoryAPIUtil.fetchCategories().then(categories =>
+//     dispatch(receiveCategories(categories))
+//   )
