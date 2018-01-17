@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchPosts } from '../actions';
 
 class Home extends Component {
+  componentWillMount() {
+    this.props.fetchData()
+  }
   render() {
     return[
       <h1 key='1'>Home</h1>,
@@ -14,9 +18,9 @@ const mapStateToProps = state => ({
   posts: state.getPosts
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   dispatch,
-//   fetchData: () => dispatch(fetchCategories())
-// });
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+  fetchData: () => dispatch(fetchPosts())
+});
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

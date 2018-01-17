@@ -13,10 +13,9 @@ export const sorting = sortBy => ({
   sortBy
 });
 
-export const fetchPosts = () => dispatch => {
+export const fetchPosts = () => dispatch =>
   PostAPIUtil.fetchPosts()
   .then(posts => dispatch(getPosts(posts)))
-}
 
 // export const fetchCategories = () => dispatch =>
 //   CategoryAPIUtil.fetchCategories().then(categories =>
