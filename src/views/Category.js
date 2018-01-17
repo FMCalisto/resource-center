@@ -10,7 +10,6 @@ class Category extends Component {
   }
 }
 
-
 const mapStateToProps = state => ({
   posts: state.getPosts
 });

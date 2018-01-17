@@ -10,7 +10,6 @@ class PostDetail extends Component {
   }
 }
 
-
 const mapStateToProps = state => ({
   posts: state.getPosts
 });
