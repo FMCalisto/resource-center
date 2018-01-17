@@ -23,7 +23,7 @@ OR
 ```
 > git clone https://github.com/FMCalisto/resource-center.git
 > cd resource-center
-> npm install
+> yarn install
 > yarn start
 ```
 
