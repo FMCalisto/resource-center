@@ -4,6 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import { ApolloClient, createNetworkInterface, ApolloProvider } from 'react-apollo';
 import logo from './logo.svg';
 import './App.css';
 
@@ -28,10 +29,19 @@ const store = createStore(
   composeEnhancers(applyMiddleware(logger, thunk))
 );
 
+// https://wordpress.org/plugins/wp-jwt-auth/
+const networkInterface = createNetworkInterface({
+  uri: 'https://jesseweigel.com/graphql',
+});
+
+const client = new ApolloClient({
+  networkInterface: networkInterface
+});
+
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <ApolloProvider client={client} store={store}>
         <BrowserRouter>
           <Switch>
             <Route exact path='/' component={Home} />
@@ -39,7 +49,7 @@ class App extends Component {
             <Route path='/category/:post_id' component={PostDetail} />
           </Switch>
         </BrowserRouter>
-      </Provider>
+      </ApolloProvider>
     );
   }
 }
