@@ -15,7 +15,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  posts: state.getPosts
+  posts: state.receivePosts
 });
 
 const mapDispatchToProps = dispatch => ({
