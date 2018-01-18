@@ -1,5 +1,7 @@
 # Resource Center
 
+<img src="assets/resource-center-banner.png"/>
+
 Moddified version of Resource Center built with [Create React App](https://github.com/facebookincubator/create-react-app) and [Material UI](https://github.com/mui-org/material-ui). You can checkout the [FreeCodeCamp YouTube Channel](https://www.youtube.com/playlist?list=PLWKjhJtqVAbknyJ7hSrf1WKh_Xnv9RL1r) for live coding sessions & details of this project.
 
 To navigate your way through applications built with Create React App & perform common tasks visit the offcial guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
