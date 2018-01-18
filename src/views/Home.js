@@ -7,10 +7,20 @@ class Home extends Component {
     this.props.fetchData()
   }
   render() {
-    return[
-      <h1 key='1'>Home</h1>,
-      <p key='2'>This is the home page</p>
-    ];
+    return (
+      <div>
+        {
+          this.props.posts
+            &&
+          Object.values(this.props.posts)
+          .map(post =>
+            <h1 key = {post.id}>
+              {post.title.rendered}
+            </h1>
+          )
+        }
+      </div>
+    );
   }
 }
 
