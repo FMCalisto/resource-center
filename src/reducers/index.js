@@ -3,8 +3,7 @@ import {GET_POSTS, SET_SORTING } from '../actions';
 
 function makeObj (items) {
   const newObj = {};
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i];
+  for (const item of items) {
     const itemId = item.id;
     newObj[itemId] = item;
   }
@@ -14,7 +13,10 @@ function makeObj (items) {
 function receivePosts (state = {}, action) {
   switch (action.type) {
     case GET_POSTS:
-      return { ...state, ...action }
+      return {
+        ...state,
+        ...makeObj(action.posts)
+      }
     default:
       return state
   }
