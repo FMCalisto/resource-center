@@ -1,37 +1,33 @@
-import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-import { connect } from 'react-redux';
-import { fetchPosts } from '../actions';
+import React, { Component } from 'react'
+import { graphql } from 'react-apollo'
+import { getAllPosts } from '../graphql/queries/posts'
+import Layout from '../components/Layout'
+import Loader from '../components/Loader'
+import Grid from 'material-ui/Grid'
+import RenderPost from '../components/renderPostPreview'
+import { Helmet } from 'react-helmet'
+// import { Link } from 'react-router-dom'
+// import '../styles/app.css'
 
 class Home extends Component {
-  componentWillMount() {
-    this.props.fetchData()
-  }
-  render() {
+  render () {
+    const posts = this.props.data.posts
     return (
-      <div>
-        {
-          this.props.posts
-            &&
-          Object.values(this.props.posts)
-          .map(post =>
-            <h1 key = {post.id}>
-              {post.title.rendered}
-            </h1>
-          )
-        }
-      </div>
-    );
+      <Layout>
+        <Helmet>
+          <title>Home</title>
+        </Helmet>
+        {!posts && <Loader />}
+        {posts && (
+          <Grid container justify='center'>
+            <Grid item xs={12} sm={8} md={6}>
+              <RenderPost posts={posts} />
+            </Grid>
+          </Grid>
+        )}
+      </Layout>
+    )
   }
 }
 
-const mapStateToProps = state => ({
-  posts: state.receivePosts
-});
-
-const mapDispatchToProps = dispatch => ({
-  dispatch,
-  fetchData: () => dispatch(fetchPosts())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default graphql(getAllPosts)(Home)

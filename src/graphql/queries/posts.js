@@ -9,51 +9,20 @@ export const getAllPosts = gql`
   }
   ${postFragment}
 `
-export const getPostsByCat = gql`
-  query getPostsByCat($slug: String!) {
-    posts(where: { categoryName: $slug }) {
-    ...PostData
-  }
-  }
-  ${postFragment}
-`
 
 export const SinglePostDetail = gql`
-  query SinglePostDetail($slug: String!) {
-    postBy(slug: $slug) {
+  query SinglePostDetail($id: ID!) {
+    post(id: $id) {
       id
-      slug
       title
       date
       content
-      categories {
-        edges {
-          node {
-            id
-            name
-          }
-        }
+      author {
+        name
       }
       featuredImage {
         sourceUrl
       }
     }
   }
-`
-
-export const PostSearchQuery = gql`
-  query PostSearchQuery($search: String!) {
-    posts(where: { search: $search }) {
-      ...PostData
-    }
-  }
-  ${postFragment}
-`
-export const FilterDateQuery = gql`
-  query PostSearchQuery($year: Int, $month: Int) {
-    posts(where: { dateQuery: { year: $year, month: $month } }) {
-      ...PostData
-    }
-  }
-  ${postFragment}
 `
