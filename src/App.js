@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { ApolloClient, createNetworkInterface, ApolloProvider } from 'react-apollo';
 import logo from './logo.svg';
 import './App.css';
+import client from './graphql/apolloClient';
 
 // Import Views
 import Category from './views/Category';
@@ -28,15 +29,6 @@ const store = createStore(
   reducer,
   composeEnhancers(applyMiddleware(logger, thunk))
 );
-
-// https://wordpress.org/plugins/wp-jwt-auth/
-const networkInterface = createNetworkInterface({
-  uri: 'https://jesseweigel.com/graphql',
-});
-
-const client = new ApolloClient({
-  networkInterface: networkInterface
-});
 
 class App extends Component {
   render() {

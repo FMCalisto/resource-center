@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.3.0",
     "graphql": "^0.12.3",
+    "material-ui": "^1.0.0-beta.29",
+    "material-ui-icons": "^1.0.0-beta.17",
     "react": "^16.2.0",
     "react-apollo": "^1.4.16",
     "react-dom": "^16.2.0",
